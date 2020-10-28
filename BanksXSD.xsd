@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/banks"
+        xmlns:tns="http://www.example.com/banks" elementFormDefault="qualified">
+    <element name="bank" type="tns:AbstractBank" abstract="true"/>
+    <element name="state-bank" type="tns:StateBank" substitutionGroup="tns:bank"/>
+    <element name="private-bank" type="tns:PrivateBank" substitutionGroup="tns:bank"/>
+    <element name="central-bank" type="tns:CentralBank" substitutionGroup="tns:bank"/>
+    <element name="banks">
+        <complexType>
+            <sequence>
+                <element ref="tns:bank" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="deposit">
+        <sequence>
+            <element name="depositor" type="string"/>
+            <element name="account-id" type="string"/>
+            <element name="time-constraints" type="integer"/>
+            <element name="persentage-type">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="YEAR"/>
+                        <enumeration value="MONTH"/>
+                        <enumeration value="DAY"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="AbstractBank">
+        <sequence>
+            <element name="deposit-type">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="SAVING"/>
+                        <enumeration value="DEMAND"/>
+                        <enumeration value="METAL"/>
+                        <enumeration value="URGENT"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="deposit" type="tns:deposit"/>
+        </sequence>
+        <attribute name="id" type="ID" use="required"/>
+        <attribute name="name" type="string" default="N/A"/>
+    </complexType>
+    <complexType name="StateBank">
+        <complexContent>
+            <extension base="tns:AbstractBank">
+                <sequence>
+                    <element name="country" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="PrivateBank">
+        <complexContent>
+            <extension base="tns:AbstractBank">
+                <sequence>
+                    <element name="bank-owner" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="CentralBank">
+        <complexContent>
+            <extension base="tns:AbstractBank">
+                <sequence>
+                    <element name="rights" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

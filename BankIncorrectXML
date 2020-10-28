@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.example.com/banks"
+       xsi:schemaLocation="http://www.example.com/banks  BanksXSD.xsd">
+    <!--First private bank-->
+    <privatebank id="ID-1" name ="BelVeb">
+        <deposit-type>SAVING</deposit-type>
+        <deposit>
+            <depositor>Mr.Poul</depositor>
+            <account-id>42302</account-id>
+            <time-constraints>365</time-constraints>
+            <persentage-type>YEAR</persentage-type>
+        </deposit>
+        <bank-owner>VebCompany</bank-owner>
+    </privatebank>
+    <!--Second private bank-->
+    <private-bank id="ID-2" name="TechnoBank">
+        <deposit-type>DEMAND</deposit-type>
+        <deposit>
+            <depositor>Mr.Steve</depositor>
+            <account-id>42303</account-id>
+            <time-constraints>91</time-constraints>
+            <persentage-type>MONTH</persentage-type>
+        </deposit>
+        <bank-owner>Techno</bank-owner>
+    </private-bank>
+    <!--First state bank-->
+    <statebank id="ID-3" name ="BelarusBank">
+        <deposit-type>METAL</deposit-type>
+        <deposit>
+            <depositor>Person</depositor>
+            <account-id>42304</account-id>
+            <time-constraints>14</time-constraints>
+            <persentage-type>DAY</persentage-type>
+        </deposit>
+        <country>Belarus</country>
+    </statebank>
+    <!--Second state bank-->
+    <state-bank id="ID-4" name ="WelfareBank">
+        <deposit-type>URGENT</deposit-type>
+        <deposit>
+            <depoitor>Mr.Mark</depoitor>
+            <account-id>42303</account-id>
+            <time-constraints>92</time-constraints>
+            <persentage-type>MONTH</persentage-type>
+        </deposit>
+        <country>Belarus</country>
+    </state-bank>
+    <!--First Central bank-->
+    <central-bank id="ID-5" name ="CentralBank">
+        <deposit-type>SAVING</deposit-type>
+        <deposit>
+            <deposior>Person</deposior>
+            <account-id>42304</account-id>
+            <time-constraints>14</time-constraints>
+            <persentage-type>DAY</persentage-type>
+        </deposit>
+        <rights>Money</rights>
+    </central-bank>
+    <!--Second Central bank-->
+    <central-bank id="ID-6" name ="CentralTmpBank">
+        <deposit-type>URGENT</deposit-type>
+        <deposit>
+            <depositor>Mr.Mark</depositor>
+            <account-id>42303</account-id>
+            <tie-constraints>92</tie-constraints>
+            <persentage-type>MONTH</persentage-type>
+        </deposit>
+        <rights>Money</rights>
+    </central-bank>
+</banks>
